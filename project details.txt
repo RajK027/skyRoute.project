@@ -1,0 +1,38 @@
+Student Management System (Flask + JSON)
+This is a basic Student Management System built using Python Flask and JSON file storage. The app allows you to add, view, and manage student details using API calls via tools like Postman.
+
+Features
+Add a new student
+View all student records
+ Search for a student by name
+Stores data in a JSON file
+ Built with Flask, easy to extend
+Tech Stack
+Tech	Usage
+Python	Programming Language
+Flask	Backend Web Framework
+JSON	Lightweight Data Storage
+Postman    	API Testing Tool
+Git	Version Control
+Project Structure
+├── app.py                  # Flask application          
+└── README.md               # Project info
+
+API Endpoints (Use in Postman)
+Method	Endpoint	Description
+POST	/add_student	Add a new student
+GET	/get_students	Get all students
+GET	/search_student	Search by name
+Example POST Request (Postman)
+Endpoint: http://localhost:5000/add_student
+
+Method: POST
+
+Body (JSON):
+
+{
+  "id": "1",
+  "name": "Riya Das"
+}
+
+

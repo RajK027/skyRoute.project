@@ -4,14 +4,14 @@ from datetime import datetime
 app = Flask(__name__)
 
 # Store student details and attendance
-students = {}       # Format: { "1": "Alice", "2": "Bob" }
-attendance = {}     # Format: { "1": ["2024-04-13", "2024-04-14"] c}
+students = {}       
+attendance = {}     
 
 @app.route('/')
 def home():
     return "Welcome to the Student Attendance System!"
 
-# 1. Register a new student
+#  Register a new student
 @app.route('/students', methods=['POST'])
 def register_student():
     data = request.get_json()
@@ -25,12 +25,12 @@ def register_student():
     attendance[student_id] = []
     return jsonify({"message": "Student registered!", "id": student_id, "name": name}), 201
 
-# 2. View all students
+#  View all students
 @app.route('/students', methods=['GET'])
 def list_students():
     return jsonify(students)
 
-# 3. Mark attendance for a student
+#  Mark attendance for a student
 @app.route('/attendance', methods=['POST'])
 def mark_attendance():
     data = request.get_json()
@@ -46,7 +46,7 @@ def mark_attendance():
     attendance[student_id].append(today)
     return jsonify({"message": f"Attendance marked for {students[student_id]} on {today}"}), 200
 
-# 4. Get attendance of a student
+#  Get attendance of a student
 @app.route('/attendance/<student_id>', methods=['GET'])
 def get_attendance(student_id):
     if student_id not in students:
